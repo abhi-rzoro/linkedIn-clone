@@ -4,6 +4,8 @@ import { auth } from "../../firebaseConfig";
 import { useNavigate, useNavigation } from "react-router-dom";
 import Spinner from "../../commonComp/loader";
 import Header from "../../commonComp/Header";
+import PostStatus from "./components/postStatus";
+import styles from "./styles.module.scss";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -22,9 +24,9 @@ export default function Home() {
   return loading ? (
     <Spinner />
   ) : (
-    <>
+    <div className={styles["home--main-container"]}>
       <Header />
-      <h1>This is the home component</h1>
-    </>
+      <PostStatus />
+    </div>
   );
 }
