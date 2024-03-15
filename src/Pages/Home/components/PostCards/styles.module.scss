@@ -1,0 +1,24 @@
+.card--main-container {
+  width: 60%;
+  background-color: whitesmoke;
+  align-self: center;
+  height: 120px;
+  border: 1px solid rgb(212, 212, 212);
+  margin-top: 50px;
+  border-radius: 7px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 20px;
+  .card--post-text {
+    font-family: Inter;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .card--time-stamp {
+    font-family: Inter;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}

@@ -8,7 +8,8 @@ import {
 export async function LoginAPI(email, password) {
   try {
     console.log("This is the login try ");
-    await signInWithEmailAndPassword(auth, email, password);
+    let res = await signInWithEmailAndPassword(auth, email, password);
+    return res;
   } catch (err) {
     console.log("this is the error console of login", err);
   }

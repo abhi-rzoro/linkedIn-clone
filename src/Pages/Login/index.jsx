@@ -29,6 +29,7 @@ export default function Login() {
         loginCredentials?.email,
         loginCredentials?.password
       );
+      localStorage.setItem("user-email", res.user.email);
       toast.success("Sucessfully signed in");
       navigate("home");
     } catch (err) {

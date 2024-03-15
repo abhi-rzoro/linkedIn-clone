@@ -1,32 +1,46 @@
 .post--main-container {
-  width: 70%;
-  background-color: whitesmoke;
-  align-self: center;
-  height: 120px;
-  border: 1px solid rgb(212, 212, 212);
-  border-radius: 7px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  .post--start-post {
-    width: 80%;
+  gap: 40px;
+  .post--start-post-main-container {
+    width: 70%;
+    background-color: whitesmoke;
+    align-self: center;
+    height: 120px;
+    border: 1px solid rgb(212, 212, 212);
+    margin-top: 50px;
+    border-radius: 7px;
     display: flex;
     align-items: center;
     justify-content: center;
-    .post--start-post-button {
+    flex-direction: column;
+    .post--start-post {
       width: 80%;
-      border: 1px solid rgb(196, 196, 196);
-      background-color: transparent;
-      height: 40px;
-      border-radius: 20px;
-      cursor: pointer;
-      padding: 10px;
-      color: grey;
-      font-family: Inter;
-      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .post--start-post-button {
+        width: 80%;
+        border: 1px solid rgb(196, 196, 196);
+        background-color: transparent;
+        height: 40px;
+        border-radius: 20px;
+        cursor: pointer;
+        padding: 10px;
+        color: grey;
+        font-family: Inter;
+        text-align: left;
+      }
+      .post--start-post-button:hover {
+        background-color: rgb(226, 226, 226);
+      }
     }
-    .post--start-post-button:hover {
-      background-color: rgb(226, 226, 226);
-    }
+  }
+  .post--cards-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

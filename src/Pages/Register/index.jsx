@@ -13,7 +13,7 @@ export default function Register() {
         registerCredentials?.email,
         registerCredentials?.password
       );
-      console.log("This is the register response", res);
+      localStorage.setItem("user-email", res.user.email);
       navigate("/home");
     } catch (err) {
       console.log("this is the error console of comp", err);
