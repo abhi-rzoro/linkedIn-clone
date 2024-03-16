@@ -3,6 +3,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 
 export async function LoginAPI(email, password) {
@@ -21,5 +22,12 @@ export async function googleSignIn() {
     return res;
   } catch (err) {
     console.log("This is the google pop up error", err);
+  }
+}
+export async function logOut() {
+  try {
+    signOut(auth);
+  } catch (err) {
+    console.log(err);
   }
 }

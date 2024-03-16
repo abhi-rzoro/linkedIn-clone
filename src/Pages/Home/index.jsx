@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
       if (!res?.accessToken) {
-        //This res gives the data of the logged in  user
+        //This res gives the data    of the logged in  user
         navigate("/");
       } else {
         setLoading(false);

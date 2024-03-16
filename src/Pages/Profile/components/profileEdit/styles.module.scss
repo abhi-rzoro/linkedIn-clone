@@ -1,0 +1,44 @@
+.profileE--main-container {
+  width: auto;
+  min-height: 400px;
+  background-color: whitesmoke;
+  margin: 30px;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+  .profileE--edt-button {
+    position: absolute;
+    button {
+      cursor: pointer;
+    }
+    right: 10px;
+  }
+  .profileE--inputs-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    input {
+      background-color: transparent;
+      border: solid 1px grey;
+      padding: 10px;
+      width: 50%;
+      height: 30px;
+      margin-top: 20px;
+    }
+  }
+  .profileE--save-button {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    align-self: center;
+    height: 50px;
+    background-color: #0077b5;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+  }
+}

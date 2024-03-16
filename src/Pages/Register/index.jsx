@@ -3,6 +3,7 @@ import styles from "../Login/styles.module.scss";
 import logo from "../../assets/linkedinLogo.png";
 import register from "../../apis/register";
 import { Link, useNavigate } from "react-router-dom";
+import { storeUser } from "../../apis/firestore";
 
 export default function Register() {
   const [registerCredentials, setRegisterCredentials] = React.useState({});
@@ -14,6 +15,10 @@ export default function Register() {
         registerCredentials?.password
       );
       localStorage.setItem("user-email", res.user.email);
+      await storeUser({
+        email: registerCredentials?.email,
+        name: registerCredentials?.name,
+      });
       navigate("/home");
     } catch (err) {
       console.log("this is the error console of comp", err);
@@ -40,6 +45,17 @@ export default function Register() {
           </p>
         </div>
         <div className={styles["login--input-container"]}>
+          <input
+            placeholder="Full Name"
+            className={styles["login--input"]}
+            onChange={(event) => {
+              console.log(registerCredentials);
+              setRegisterCredentials({
+                ...registerCredentials,
+                name: event.target.value,
+              });
+            }}
+          />
           <input
             placeholder="Email or Phone"
             className={styles["login--input"]}

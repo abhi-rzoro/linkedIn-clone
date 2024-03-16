@@ -1,0 +1,50 @@
+.profileC--post-main-container {
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+  justify-content: center;
+}
+.profileC--main-container {
+  height: auto;
+  width: auto;
+  background-color: whitesmoke;
+  margin: 30px;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+  .profileC--user-name {
+    font-family: Inter;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  .profileC--edt-button {
+    position: absolute;
+    button {
+      cursor: pointer;
+    }
+    right: 10px;
+  }
+  .profileC--headline {
+    margin-top: 10px;
+    font-family: Inter;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+  }
+  .profileC--info-container {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+    .profileC--info-right {
+      margin-top: 10px;
+      p {
+        margin-top: 10px;
+        font-family: Inter;
+        color: rgba(0, 0, 0, 0.9);
+        font-size: 14px;
+      }
+    }
+  }
+}

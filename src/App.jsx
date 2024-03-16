@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Spinner from "./commonComp/loader";
+import Profile from "./Pages/Profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/profile" element={<Profile />} />
       {/* <Route path="/spinner" element={<Spinner />} /> */}
     </>
   )

@@ -1,7 +1,7 @@
 import { React, useState, useMemo } from "react";
 import styles from "./styles.module.scss";
 import ModalPopUp from "../../../../commonComp/Modal";
-import { storePost, getPost } from "../../../../apis/firestore";
+import { storePost, getPost, getCurrentUser } from "../../../../apis/firestore";
 import PostCards from "../PostCards";
 import getCurrentTimeStamp from "../../../../helperFunctions/getTime";
 
@@ -9,12 +9,15 @@ export default function PostStatus() {
   const [modalOpen, setModalOpen] = useState(false);
   const [textPost, setTextPost] = useState("");
   const [allPosts, setAllPosts] = useState([]);
+  const [currentUser, setCurrentUser] = useState();
 
   async function sendPost() {
     const postData = {
       stringPost: textPost,
       timeStamp: getCurrentTimeStamp("LLL"),
-      email: localStorage.getItem("user-email"),
+      email: currentUser.email,
+      currentUserName: currentUser.name,
+      userId: currentUser.id,
     }; //Sending in this object to be stored in the collection
     console.log("This is the post data submitted: ", postData);
     await storePost(postData);
@@ -26,10 +29,18 @@ export default function PostStatus() {
   }
   useMemo(() => {
     getPost(setAllPosts);
+    getCurrentUser(setCurrentUser);
   }, []);
+  console.log("this is the current user: ", currentUser);
+  console.log("These are all the posts: ", allPosts);
   const renderPosts = allPosts.map((posts) => {
     return (
-      <PostCards stringPost={posts.stringPost} timeStamp={posts.timeStamp} />
+      <PostCards
+        stringPost={posts.stringPost}
+        timeStamp={posts.timeStamp}
+        email={posts.email}
+        name={posts.currentUserName}
+      />
     );
   });
   return (

@@ -16,7 +16,7 @@ export default function Login() {
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
       if (res?.accessToken) {
-        //This res gives the data of the logged in user
+        //This res gives t  he data of the logged in user
         navigate("/home");
       } else {
         setLoading(false);
@@ -31,7 +31,7 @@ export default function Login() {
       );
       localStorage.setItem("user-email", res.user.email);
       toast.success("Sucessfully signed in");
-      navigate("home");
+      navigate("/home");
     } catch (err) {
       console.log("this is the error console of comp", err);
       toast.error("Please check your credentials");
