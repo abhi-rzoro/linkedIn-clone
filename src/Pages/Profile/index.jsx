@@ -17,6 +17,7 @@ export default function Profile() {
   React.useMemo(() => {
     getCurrentUser(setCurrentUserP);
   }, []);
+  console.log("current user P: ", currentUserP);
   const navigate = useNavigate();
   const [loading, setLoading] = React.useState(true);
 

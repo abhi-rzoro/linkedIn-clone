@@ -15,7 +15,12 @@ export default function ProfileCard(props) {
 
   useMemo(() => {
     getPost(setAllPosts);
-    getSelectedPost(location?.state?.userEmail, setAllSelectedPosts);
+    getSelectedPost(
+      location.state
+        ? location?.state?.userEmail
+        : localStorage.getItem("user-email"),
+      setAllSelectedPosts
+    );
   }, []);
   useMemo(() => {
     getSelectedUser(location?.state?.userEmail, setAllSelectedUsers);
@@ -48,23 +53,39 @@ export default function ProfileCard(props) {
     <div>
       <div className={styles["profileC--main-container"]}>
         <div className={styles["profileC--edt-button"]}>
-          <button onClick={props.showProfile}>Edit</button>
+          {!location.state && <button onClick={props.showProfile}>Edit</button>}
         </div>
         <div className={styles["profileC--info-container"]}>
           <div>
             <p className={styles["profileC--user-name"]}>
-              {allSelectedUsers?.name}
+              {allSelectedUsers
+                ? allSelectedUsers.name
+                : props.currentUser.name}
             </p>
             <p className={styles["profileC--headline"]}>
-              {allSelectedUsers?.headline}
+              {allSelectedUsers
+                ? allSelectedUsers.headline
+                : props.currentUser.headline}{" "}
             </p>
             <p className={styles["profileC--headline"]}>
-              {allSelectedUsers?.location}
+              {allSelectedUsers
+                ? allSelectedUsers.location
+                : props.currentUser.location}{" "}
             </p>
           </div>
           <div className={styles["profileC--info-right"]}>
-            <p> {allSelectedUsers?.college}</p>
-            <p> {allSelectedUsers?.company}</p>
+            <p>
+              {" "}
+              {allSelectedUsers
+                ? allSelectedUsers.college
+                : props.currentUser.college}
+            </p>
+            <p>
+              {" "}
+              {allSelectedUsers
+                ? allSelectedUsers.company
+                : props.currentUser.company}
+            </p>
           </div>
         </div>
       </div>
